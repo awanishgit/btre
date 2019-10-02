@@ -31,15 +31,6 @@ def contact(request):
 
         contact.save()
 
-        send_mail(
-            'Property Listing inquiry',
-            'There has been an inquiry for ' + listing +
-            '. Sign into the admin panel for more info.',
-            'awanishpandey86@gmail.com',
-            [realtor_email, 'awanish.pandey@kiwitech.com'],
-            fail_silently=False
-        )
-
         messages.success(
             request, 'Your request has been submitted, a realtor will get back to you soon.')
         return redirect('/listings/'+listing_id)
